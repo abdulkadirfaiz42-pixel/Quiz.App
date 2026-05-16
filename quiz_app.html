@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuizMaster — Faiz Abdulkadir</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div class="logo">Quiz<span>Master</span></div>
+    <div class="byline">// Built by Faiz Abdulkadir</div>
+  </div>
+
+  <!-- HOME SCREEN -->
+  <div id="home" class="screen active">
+    <div class="card">
+      <p class="home-title">Choose a Category</p>
+      <p class="home-sub">5 questions · 20 seconds each · Test your knowledge!</p>
+      <div class="categories">
+        <div class="cat-btn" onclick="selectCat(this,'Technology')">
+          <div class="cat-icon">💻</div>
+          <div class="cat-name">Technology</div>
+        </div>
+        <div class="cat-btn" onclick="selectCat(this,'Cybersecurity')">
+          <div class="cat-icon">🔐</div>
+          <div class="cat-name">Cybersecurity</div>
+        </div>
+        <div class="cat-btn" onclick="selectCat(this,'General Knowledge')">
+          <div class="cat-icon">🌍</div>
+          <div class="cat-name">General</div>
+        </div>
+      </div>
+      <button class="start-btn" id="start-btn" disabled onclick="startQuiz()">
+        Select a category to begin →
+      </button>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="quiz" class="screen">
+    <div class="card">
+      <div class="quiz-top">
+        <span class="q-counter" id="q-counter">Question 1 of 5</span>
+        <span class="score-badge" id="score-badge">Score: 0</span>
+      </div>
+      <div class="timer-row">
+        <div class="progress-bar"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+        <span class="timer" id="timer">20s</span>
+      </div>
+      <div class="question-text" id="q-text"></div>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback"></div>
+      <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div id="result" class="screen">
+    <div class="card result-screen">
+      <div class="score-ring">
+        <div class="score-big" id="final-num">0</div>
+        <div class="score-of">OUT OF 5</div>
+      </div>
+      <div class="result-title" id="result-title">Well done!</div>
+      <div class="result-sub" id="result-sub"></div>
+      <div class="result-btns">
+        <button class="btn-play" onclick="replaySame()">Play Again ↺</button>
+        <button class="btn-home" onclick="goHome()">Change Category</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
